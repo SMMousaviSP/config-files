@@ -1,0 +1,17 @@
+""" Vim-Plugin
+call plug#begin('~/.vim/plugged')
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'vim-airline/vim-airline'
+call plug#end()
+color dracula
+
+""" Show line number
+set number
+
+""" Forbidden +80 characters in vim
+:set textwidth=78
+:set colorcolumn=+1
+highlight ExtraWhitespace ctermbg=darkred guibg=#FF0000
+match ExtraWhitespace /\s\+$/
+highlight OverLength ctermbg=red guibg=#FF0000
+2match OverLength /\%80v.\+/
