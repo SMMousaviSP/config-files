@@ -1,17 +1,35 @@
 """ Vim-Plugin
 call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
+" Fugitive must be installed unless airline doesn't show git branch
 Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
-color dracula
 
 """ Show line number
 set number
 
 """ Forbidden +80 characters in vim
-:set textwidth=78
+:set textwidth=80
 :set colorcolumn=+1
 highlight ExtraWhitespace ctermbg=darkred guibg=#FF0000
-match ExtraWhitespace /\s\+$/
-highlight OverLength ctermbg=red guibg=#FF0000
-2match OverLength /\%80v.\+/
+"" These 3 line make characters red when they pass the limit
+" match ExtraWhitespace /\s\+$/
+" highlight OverLength ctermbg=red guibg=#FF0000
+" 2match OverLength /\%80v.\+/
+
+""" Change updatetime flag so gitgutter recognize changes faster
+set updatetime=2000
+
+""" Powerline font symbol
+let g:airline_powerline_fonts = 1
+
+""" Kite auto complete
+let g:kite_auto_complete=1
+let g:kite_tab_complete=1
+
+""" Enable dracula theme
+syntax on
+set t_Co=256
+set termguicolors
+color dracula
